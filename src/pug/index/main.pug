@@ -7,10 +7,10 @@ html(lang='ru')
 		title #{title}
 		meta(name="description", content=description)
 		meta(name="viewport" content="width=device-width, initial-scale=1")
+		script(src="/vendors/lazysizes.min.js")
 		block head
 
 	body(class=pageClass)
-		.wrapper
-			include ../header
-			block content
-			include ../footer
+		include ../header
+		include ./content
+		include ../footer

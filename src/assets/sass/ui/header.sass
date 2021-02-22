@@ -1,0 +1,70 @@
+header
+	border-bottom: 1px solid rgba(191, 21, 21, 0.15)
+	.wrapper
+		display: flex
+		align-items: center
+		justify-content: space-between
+		ul.nav
+			display: flex
+			align-items: center
+			li
+				margin-right: 2rem
+				a
+					color: #111
+					&:hover
+						color: $red
+				&.cat
+					position: relative
+					cursor: pointer
+					margin-right: 3rem
+					&:hover
+						color: $red
+						ul
+							display: block
+						&:after
+							transform: rotate(180deg)
+					&:after
+						content: url('/assets/img/layout/header/tr.svg')
+						display: block
+						position: absolute
+						top: -4px
+						right: -19px
+						transition: all 0.3s ease-in-out
+					ul
+						top: 19px
+						position: absolute
+						background: #fff
+						border: 1px solid rgba(191, 21, 21, 0.15)
+						display: none
+						li
+							width: 100%
+							a
+								padding: 10px
+								display: inline-block
+								width: 100%
+								transition: background 0.3s ease-in-out
+								&:hover
+									background: pink
+				&.cart
+					position: relative
+					margin: 0 3rem
+					&:hover
+						img
+							opacity: 0.8
+						span
+							opacity: 0.8	
+					span
+						width: 15px
+						height: 15px
+						color: #fff
+						line-height: 16px
+						border-radius: 50%
+						text-align: center
+						font-size: 10px
+						background: $red
+						position: absolute		
+						display: none
+						top: -5px
+						right: -12px
+						&.filled
+							display: block

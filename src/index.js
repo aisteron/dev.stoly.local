@@ -2,4 +2,4 @@
 import './js/'
 
 // SCSS
-import './assets/scss/index.sass'
+import './assets/sass/index.sass'

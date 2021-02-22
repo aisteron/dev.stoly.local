@@ -1,1 +1,30 @@
 header
+	.wrapper
+		a(href="/")
+			img.logo(src="/assets/img/layout/header/logo.jpg")
+		ul.nav
+			li.cat Каталог
+				ul
+					li
+						a(href="#") Столы
+					li
+						a(href="#") Полки
+
+			li
+				a(href="#") Доставка и оплата
+			li
+				a(href="#") Контакты
+			li.cart
+				a(href="#")
+					img.lazyload(data-src="/assets/img/layout/header/cart.svg" width="22" height="21")
+					span.filled 1
+
+			li
+				a(href="viber://chat/?number=%2B375445964917")
+					img.lazyload(data-src="/assets/img/layout/header/viber.svg" width="21" height="23")
+			li
+				a(href="https://api.whatsapp.com/send?phone=375445964917")
+					img.lazyload(data-src="/assets/img/layout/header/wa.svg" width="23" height="23")
+						
+			li
+				a(href="tel:+375445964917") +375 44 596 49 17
