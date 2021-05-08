@@ -1,0 +1,19 @@
+block variables
+
+doctype html
+html(lang='ru')
+	head
+		meta(charset='utf-8')
+		title #{title}
+		meta(name="description", content=description)
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		script(src="/vendors/lazysizes.min.js")
+		script(src="/vendors/pure-swipe.js")
+		block head
+
+	body(class=pageClass)
+		include ../header
+		section
+			article
+				include ./content
+		include ../footer

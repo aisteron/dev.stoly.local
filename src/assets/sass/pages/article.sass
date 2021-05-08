@@ -1,0 +1,18 @@
+body.article-page
+	section
+		width: 1140px
+		margin: 1rem auto
+		display: flex
+		@media(max-width: 1140px)
+			width: 100%
+			padding: 0 1rem
+	article
+		ul
+			padding-left: 1rem
+			li
+				&:before		
+					content: '•'
+					color: $red
+					font-size: 18px
+					padding-right: 10px
+				font-size: 15px	

@@ -5,7 +5,7 @@ a.card
 	border: 1px solid #BFBFBF
 	border-radius: 5px
 	padding: 1rem
-	transition: all 0.5s ease-in-out
+	transition: box-shadow 0.5s ease-in-out
 	position: relative
 	&:hover
 		box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
@@ -14,6 +14,7 @@ a.card
 		border-top-left-radius: 5px
 		margin: -1rem
 		margin-bottom: 0
+		border-bottom: 1px solid #3333
 	ul
 		margin: 10px 0
 		li
@@ -28,7 +29,9 @@ a.card
 				font-size: 1rem
 				span.discount
 					padding-right: 1rem
-					text-decoration: line-through	
+					text-decoration: line-through
+				span.regular
+					color: $red		
 
 	.name
 		background-color: #FCF5F5
@@ -37,6 +40,7 @@ a.card
 		margin: -1rem
 		margin-top: 0
 		padding: 1rem
+		border-top: 1px solid #3333
 		span
 			font-weight: 500
 			color: #111

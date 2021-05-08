@@ -1,0 +1,87 @@
+aside
+	.aside-filter
+		span.close &times;
+		.item.size
+			span.header Размер стола (Ш х Г х В)
+			.body
+				label
+					input(type="checkbox")
+					span 1000 x 600 x 710	
+				label
+					input(type="checkbox")
+					span 1100 x 700 x 710	
+				label
+					input(type="checkbox")
+					span 1200 x 800 x 710	
+		.item.color
+			span.header Цвет опоры
+			.body
+				.row
+					.box.black
+					span черный
+				.row.active
+					.box.white
+					span белый	
+				.row
+					.box.mchrome
+					span матовый хром	
+				.row
+					.box.chrome
+					span глянцевый хром
+		.item.supply-type
+			span.header Тип опоры
+			.body
+				.row
+					img(src="/assets/img/layout/filter/t1.jpg")
+					label
+						input(type="radio" name="supply-type")
+						span мебельная круглая
+				.row
+					img(src="/assets/img/layout/filter/t2.jpg")
+					label
+						input(type="radio" name="supply-type")
+						span подстолье Синди
+				.row
+					img(src="/assets/img/layout/filter/t2.jpg")
+					label
+						input(type="radio" name="supply-type")
+						span подстолье Флавия
+		.item.material
+			span.header Материал столешницы
+			.body
+				.row.active
+					img.mat.active(src="/assets/img/layout/filter/mat/01.jpg")
+					span Дуб бардолино натуральный
+					a(href="/assets/img/layout/filter/big.jpg"  data-fancybox="gallery")
+						svg(viewBox="0 0 17.4 17.4")
+							path(fill="rgba(191,21,21,0.34)" d="M16.8 13.7L13.9 11a8 8 0 00.9-3.5 7.4 7.4 0 10-7.4 7.4 8 8 0 003.5-.9l2.8 2.9a2.1 2.1 0 003 0 2.3 2.3 0 000-3zM7.4 13A5.6 5.6 0 1113 7.4 5.6 5.6 0 017.4 13z")
+				.row
+					img.mat(src="/assets/img/layout/filter/mat/02.jpg")
+					span Белый премиум
+					a(href="/assets/img/big2.jpg"  data-fancybox="gallery")
+						svg(viewBox="0 0 17.4 17.4")
+							path(fill="rgba(191,21,21,0.34)" d="M16.8 13.7L13.9 11a8 8 0 00.9-3.5 7.4 7.4 0 10-7.4 7.4 8 8 0 003.5-.9l2.8 2.9a2.1 2.1 0 003 0 2.3 2.3 0 000-3zM7.4 13A5.6 5.6 0 1113 7.4 5.6 5.6 0 017.4 13z")
+				.row
+					img.mat(src="/assets/img/layout/filter/mat/03.jpg")
+					span Сосна Касцина
+					svg(viewBox="0 0 17.4 17.4")
+							path(fill="rgba(191,21,21,0.34)" d="M16.8 13.7L13.9 11a8 8 0 00.9-3.5 7.4 7.4 0 10-7.4 7.4 8 8 0 003.5-.9l2.8 2.9a2.1 2.1 0 003 0 2.3 2.3 0 000-3zM7.4 13A5.6 5.6 0 1113 7.4 5.6 5.6 0 017.4 13z")
+				.row
+					img.mat(src="/assets/img/layout/filter/mat/04.jpg")
+					span Дуб небраска натуральный
+					svg(viewBox="0 0 17.4 17.4")
+							path(fill="rgba(191,21,21,0.34)" d="M16.8 13.7L13.9 11a8 8 0 00.9-3.5 7.4 7.4 0 10-7.4 7.4 8 8 0 003.5-.9l2.8 2.9a2.1 2.1 0 003 0 2.3 2.3 0 000-3zM7.4 13A5.6 5.6 0 1113 7.4 5.6 5.6 0 017.4 13z")
+				.row
+					img.mat(src="/assets/img/layout/filter/mat/05.jpg")
+					span Бетон Чикаго светло-серый
+					svg(viewBox="0 0 17.4 17.4")
+							path(fill="rgba(191,21,21,0.34)" d="M16.8 13.7L13.9 11a8 8 0 00.9-3.5 7.4 7.4 0 10-7.4 7.4 8 8 0 003.5-.9l2.8 2.9a2.1 2.1 0 003 0 2.3 2.3 0 000-3zM7.4 13A5.6 5.6 0 1113 7.4 5.6 5.6 0 017.4 13z")
+		.item.results
+			.anchor
+			.row
+				span Найдено
+				span.count 404
+				span.declension стола
+				svg(viewBox='0 0 13.98 13.98')
+					path(fill='#333' d='M8.27 6.99l5.44-5.44A.9.9 0 0012.43.26L7 5.71 1.55.26A.9.9 0 00.27 1.54L5.7 7 .27 12.43a.9.9 0 101.28 1.28l5.44-5.44 5.44 5.44a.9.9 0 101.28-1.28zm0 0')
+	.bg-placeholder

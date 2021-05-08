@@ -1,0 +1,17 @@
+nav[aria-label]
+	ol
+		padding-left: 0
+		list-style-type: none
+		li
+			display: inline-block
+			&:after
+				content: "/"
+				padding-left: 7px
+			&:last-of-type
+				&:after
+					content: ""
+				a
+					color: #333
+			a
+				&:hover
+					text-decoration: underline		

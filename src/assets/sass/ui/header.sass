@@ -1,14 +1,44 @@
 header
 	border-bottom: 1px solid rgba(191, 21, 21, 0.15)
+	background: #fff
+	@media(max-width: 460px)
+		padding-bottom: 3rem
 	.wrapper
 		display: flex
 		align-items: center
 		justify-content: space-between
+		height: 54px
+		@media(max-width: 460px)
+			position: fixed
+			z-index: 3
+			background: #fff
+		img.logo
+			@media(max-width: 460px)
+				width: 120px
+			@media(max-width: 415px)	
+				width: 100px
+				margin: 5px 0
 		ul.nav
 			display: flex
 			align-items: center
+			@media(max-width: 960px)
+				width: 90%
+				justify-content: space-around
 			li
 				margin-right: 2rem
+				&:last-of-type
+					margin-right: 0
+					@media(max-width: 590px)
+						margin-right: 1rem
+				@media(max-width: 960px)
+					margin-right: 1rem
+					&:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3)
+						display: none	
+				@media(max-width: 540px)
+					&.viber, &.wa
+						display: none
+				@media(max-width: 415px)		
+					font-size: 13px
 				a
 					color: #111
 					&:hover
@@ -36,6 +66,7 @@ header
 						background: #fff
 						border: 1px solid rgba(191, 21, 21, 0.15)
 						display: none
+						z-index: 2
 						li
 							width: 100%
 							a
@@ -48,6 +79,8 @@ header
 				&.cart
 					position: relative
 					margin: 0 3rem
+					@media(max-width: 700px)
+						margin: 0 1rem
 					&:hover
 						img
 							opacity: 0.8
@@ -57,7 +90,7 @@ header
 						width: 15px
 						height: 15px
 						color: #fff
-						line-height: 16px
+						line-height: 15px
 						border-radius: 50%
 						text-align: center
 						font-size: 10px

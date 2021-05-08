@@ -8,3 +8,18 @@ export function onloadCSS(n,e){
 		n.onload=null,e&&e.call(n)},
 		"isApplicationInstalled"in navigator&&"onloadcssdefined"in n&&n.onloadcssdefined(e);
 }
+
+export const TUNE = {
+	local: 'localhost:8082',
+    //dev: 'dev.stoly.by',
+    dev: 'stoly.modx',
+    prod: 'stoly.by',
+    protocol: 'http://'
+
+};
+
+export function check_host(){
+    let host;
+    return (window.location.host === TUNE.prod || window.location.host === TUNE.dev) ? host = '' : host = TUNE.protocol+TUNE.dev;
+
+}

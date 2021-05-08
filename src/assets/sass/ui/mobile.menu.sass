@@ -1,0 +1,50 @@
+#nav-icon4
+  width: 23px
+  min-width: 23px
+  height: 23px
+  position: relative
+  transform: rotate(0deg)
+  transition: .5s ease-in-out
+  cursor: pointer
+  @media(min-width: 960px)
+    display: none
+  > *
+    pointer-events: none
+  span
+    display: block
+    position: absolute
+    height: 3px
+    width: 100%
+    background: $red
+    border-radius: 2px
+    opacity: 1
+    left: 0
+    transform: rotate(0deg)
+    transition: .25s ease-in-out
+
+    &:nth-child(1)
+      top: 0px
+      transform-origin: left center
+
+    &:nth-child(2)
+      top: 8px
+      transform-origin: left center
+
+    &:nth-child(3)
+      top: 16px
+      transform-origin: left center
+
+  &.open span
+    &:nth-child(1)
+      transform: rotate(45deg)
+      top: 2px
+      left: 4px 
+
+    &:nth-child(2)
+      width: 0%
+      opacity: 0
+
+    &:nth-child(3)
+      transform: rotate(-45deg)
+      top: 18px
+      left: 4px

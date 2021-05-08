@@ -1,0 +1,73 @@
+//@import './fonts/lato-font.sass'
+@import './fonts/system-font.sass'
+
+html
+	box-sizing: border-box
+	*, *:before, *:after
+		box-sizing: inherit
+
+body
+	margin: 0
+	padding: 0
+	//font-family: 'Lato', sans-serif
+	font-family: system-ui
+	background-color: #FAF9F8
+
+$red: #BF1515	
+
+a
+	color: $red
+	text-decoration: none	
+
+ul
+	margin: 0
+	padding: 0
+	list-style: none
+.indent
+	text-indent: 1rem
+
+.wrapper
+	width: 1140px
+	margin: 0 auto
+	@media(max-width: 1140px)
+		width: 100%
+		padding: 0 1rem
+.mt1
+	margin-top: 1rem
+.mb1
+	margin-bottom: 1rem  
+
+.ripple
+	border-radius: 50%
+	background-color: rgba(255, 255, 255, 0.7)
+	position: absolute
+	transform: scale(0)
+	animation: ripple 0.6s linear
+@keyframes ripple
+	to
+		transform: scale(2.5)
+		opacity: 0
+button
+	&.outline
+		background-color: #fff
+		border-radius: 5px
+		border: 1px solid $red
+		color: $red
+		padding: 5px 12px
+		transition: background-color 0.3s ease-in-out
+		cursor: pointer
+		&:hover
+			background-color: lighten($red, 50%)
+article
+	h1
+		font-size: 41px
+		color: $red
+		font-weight: bold
+		margin-top: 0
+		margin-bottom: 1rem
+	p
+		line-height: 21px						
+
+
+
+	

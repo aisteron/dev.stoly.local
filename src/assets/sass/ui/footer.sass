@@ -1,0 +1,49 @@
+footer
+	background: #fff
+	border-top: 1px solid rgba(191, 21, 21, 0.15)
+	.wrapper
+		display: flex
+		justify-content: space-between
+		height: 50px
+		align-items: center
+		font-size: 14px
+		@media(max-width: 610px)
+			flex-direction: column
+			padding: 1rem
+			height: auto
+			.copy
+				margin-bottom: 1rem
+			.phone
+				display: block
+				margin-bottom: 1rem	
+			.mail
+				display: block
+				margin-bottom: 1rem
+			.outline
+					
+		.copy
+			color: #707070
+#mobile-menu
+	position: fixed
+	top: 0
+	background: $red
+	height: 100vh
+	padding: 1rem
+	margin-top: 45px
+	width: 250px
+	left: -250px
+	transition: all 0.3s ease-in-out
+	hr
+		border-color: #f13434
+		margin: 1rem -1rem
+	&.open
+		left: 0
+	li
+		line-height: 40px
+	a
+		color: #fff
+		text-transform: uppercase
+		font-weight: bold
+		&:hover
+			color: pink
+
