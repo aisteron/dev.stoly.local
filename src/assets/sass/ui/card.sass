@@ -15,6 +15,7 @@ a.card
 		margin: -1rem
 		margin-bottom: 0
 		border-bottom: 1px solid #3333
+		object-fit: cover
 	ul
 		margin: 10px 0
 		li
@@ -27,11 +28,21 @@ a.card
 			&.price
 				font-weight: 600
 				font-size: 1rem
+				display: flex
+				justify-content: space-between
+				align-items: center
 				span.discount
 					padding-right: 1rem
 					text-decoration: line-through
 				span.regular
-					color: $red		
+					color: $red	
+				img
+					border-bottom: 0
+					margin: 0
+					border-radius: 0
+					transition: opacity 0.5s ease-in-out
+					&:hover
+						opacity: 0.5		
 
 	.name
 		background-color: #FCF5F5

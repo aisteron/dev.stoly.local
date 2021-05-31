@@ -4,7 +4,9 @@ export function aside_filter(){
 
 makeObserver()
 show_hide_filter()
-show_shelf_size()
+
+color_supply()
+check_material()
 
 }
 
@@ -61,21 +63,6 @@ function show_hide_filter(){
 
 }
 
-function show_shelf_size(){
-	if(!$_('.aside-filter .item.size .body span.title')) return
-		$$_('.aside-filter .item.size span.head').forEach(span => {
-			span.addEventListener('click', event => {
-				console.log(event.target)
-				event.target.nextElementSibling.classList.toggle('open')
-			})
-		})
-
-	$$_('.aside-filter .item.size ul li').forEach(li => {
-
-		li.addEventListener('click', replace)
-
-	})
-}
 
 
 function replace(){
@@ -93,4 +80,30 @@ function replace(){
 	
 	event.target.remove()
 	ul.classList.remove('open')
+}
+
+function color_supply(){
+	if(!$_('aside .aside-filter')) return
+
+	$$_('.item.color .row').forEach(el => {
+		el.addEventListener('click', event => {
+			$$_('.item.color .row').forEach(el => el.classList.remove('active'))
+			event.target.closest('.row').classList.add('active')
+		})
+	})
+		
+}
+
+function check_material(){
+	if(!$_('.item.material')) return
+
+
+	$$_('.item.material .body .row').forEach(el => {
+		el.addEventListener("click", event => {
+			if(event.target.tagName == 'svg' || event.target.tagName == 'a') return;
+			$$_('.item.material .body .row').forEach(el => el.classList.remove('active'))
+			event.target.classList.add('active')
+		})
+	})
+
 }

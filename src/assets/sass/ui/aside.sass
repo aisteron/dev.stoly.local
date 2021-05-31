@@ -60,6 +60,7 @@ aside
 					border-bottom: 0
 			&.size
 				.body
+					padding-top: 1rem
 					span.title
 						font-size: 14px
 						color: #707070
@@ -93,7 +94,12 @@ aside
 							color: $red
 							cursor: pointer
 						.width, .height, .depth
-							position: relative				
+							position: relative
+						.width, .height
+							&:after
+								content: 'x'
+								position: absolute
+								right: -15px			
 
 			&.color
 				.row
@@ -146,6 +152,8 @@ aside
 					min-width: 19px
 					display: none
 					cursor: pointer
+					>*
+						pointer-events: none
 				.row
 					display: flex
 					align-items: center
@@ -153,9 +161,11 @@ aside
 					font-size: 14px
 					margin: 0 -28px
 					padding: 8px 28px
+					img
+						border: 1px solid transparent
 					&.active
 						img
-							border: 1px solid $red
+							border-color: $red
 							border-radius: 5px
 						span
 							color: $red	
@@ -166,7 +176,8 @@ aside
 							&:hover
 								path
 									fill: $red
-
+					span, img
+						pointer-events: none
 					span
 						flex-grow: 1
 						cursor: pointer

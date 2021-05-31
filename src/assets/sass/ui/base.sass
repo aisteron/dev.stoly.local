@@ -13,7 +13,8 @@ body
 	font-family: system-ui
 	background-color: #FAF9F8
 
-$red: #BF1515	
+$red: #BF1515
+$orange: #ffac58
 
 a
 	color: $red
@@ -66,7 +67,38 @@ article
 		margin-top: 0
 		margin-bottom: 1rem
 	p
-		line-height: 21px						
+		line-height: 21px
+		
+@keyframes flickerAnimation
+	0% 
+		opacity: 1
+	50% 
+		opacity: 0
+	100% 
+		opacity: 1
+.flicker
+	animation: flickerAnimation 1s infinite
+
+.stripe-animation
+	background: #bf15155e
+	position: relative
+	&:after
+		content: ""
+		z-index: 1
+		background-size: 50px 50px
+		overflow: hidden
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+		animation: move 2s linear infinite
+		background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent )
+@keyframes move
+	0%
+		background-position: 0 0
+	100%
+		background-position: 50px 50px
 
 
 

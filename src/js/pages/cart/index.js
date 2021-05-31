@@ -4,5 +4,7 @@ import App from './app'
 
 
 
+if(document.querySelector('body').classList.contains('cart-page')){
+	ReactDOM.render(<App/>, document.querySelector('#root'))
+}
 
-ReactDOM.render(<App/>, document.querySelector('#root'))

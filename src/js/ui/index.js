@@ -1,5 +1,8 @@
 import {$_, $$_} from '../libs.js'
 import {aside_filter} from './aside.filter.js'
+import {fancy} from './fancy.js'
+import {shelves_size} from './shelves.size.js'
+
 export function Ui(){
 
   $$_('.categories a.item').forEach(el => {
@@ -8,6 +11,8 @@ export function Ui(){
 
   open_mobile_menu()
   aside_filter()
+  fancy()
+  shelves_size()
 	
 }
 

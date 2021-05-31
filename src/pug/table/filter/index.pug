@@ -1,0 +1,12 @@
+block variables
+.filter
+	h1 Обеденный стол Дуб бардолино натуральный 36мм (опора хром)
+	span.article Артикул 2001
+	include size.pug
+	if thick == 36
+		include color.pug
+	if thick == 18 || 'flavia'
+		include material.pug	
+	include supply.chars.pug
+	include deck.pug
+

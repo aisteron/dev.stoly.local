@@ -1,0 +1,64 @@
+block variables
+.item.size
+	h3 Размер стола [ш*г*в] мм
+	if thick == 36
+		ul
+			li
+				label
+					input(type="radio" name="size" checked)
+					span 1100 x 700 x 710	
+			li
+				label
+					input(type="radio" name="size")
+					span 1200 x 800 x 710	
+			li
+				label
+					input(type="radio" name="size")
+					span 1400 x 800 x 710	
+			li
+				label
+					input(type="radio" name="size")
+					span 1600 x 800 x 710
+
+	if thick == 18
+		ul
+			li
+				label
+					input(type="radio" name="size" checked)
+					span 1000 x 600 x 710	
+			li
+				label
+					input(type="radio" name="size")
+					span 1100 x 700 x 710	
+			li
+				label
+					input(type="radio" name="size")
+					span 1200 x 800 x 710	
+			li
+				label
+					input(type="radio" name="size")
+					span 1400 x 800 x 710
+	
+	if thick ==	'flavia'
+		ul
+			li
+				label
+					input(type="radio" name="size" checked)
+					span 1200 x 800 x 740	
+			li
+				label
+					input(type="radio" name="size")
+					span 1400 x 800 x 740
+	
+	if thick ==	'sindi'
+		ul
+			li
+				label
+					input(type="radio" name="size" checked)
+					span 1200 x 800 x 745	
+			li
+				label
+					input(type="radio" name="size")
+					span 1400 x 800 x 745
+
+
