@@ -64,24 +64,6 @@ function show_hide_filter(){
 }
 
 
-
-function replace(){
-
-	let head = event.target.closest('div').querySelector('span.head')
-	let ul = event.target.closest('ul')
-	let li = document.createElement('li')
-		  
-  li.innerText = head.innerText
-	li.addEventListener('click', replace)
-	
-	ul.appendChild(li)
-	
-	head.innerText = event.target.innerText
-	
-	event.target.remove()
-	ul.classList.remove('open')
-}
-
 function color_supply(){
 	if(!$_('aside .aside-filter')) return
 

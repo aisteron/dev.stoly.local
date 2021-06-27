@@ -1,0 +1,90 @@
+body.table-page, body.shelf-page
+	article
+		background: #fff
+		@media(max-width: 1000px)
+			width: 100%
+			.main_photo
+				img
+					width: 100%
+					height: auto
+		.thumbs
+			width: 366px
+			margin: 10px auto
+			img
+				margin-right: 10px
+				border: 1px solid transparent
+				&.active
+					border-color: $red
+		.wrap
+			width: 366px
+			margin: 0 auto
+			.price
+				font-size: 3rem
+				font-weight: bold
+				margin: 1rem 0		
+				display: inline-block
+			.buttons
+				display: flex
+				justify-content: space-between	
+				a
+					border: 1px solid #333
+					padding: 5px 10px
+					display: flex
+					align-items: center
+					
+					font-size: 0.9rem
+					font-weight: 500
+					border-radius: 4px
+					transition: background 0.3s ease-in-out
+					img
+						margin-right: 10px
+					&.one
+						width: 170px
+						border-color: $red
+						&:hover
+							background: lighten($red, 40%)
+					&.cart
+						width: 130px
+						border-color: $orange
+						&:hover
+							background: lighten($orange, 25%)
+						span
+							color: darken($orange, 10%)
+			.description
+				background: #fff8f1
+				padding: 1rem
+				font-size: 0.9rem
+				margin: 1rem 0
+				p
+					margin: 0			
+
+	nav
+		display: flex
+		justify-content: space-between
+		.filter
+			display: none
+			margin: 1rem 0
+			color: $red
+			border-bottom: 1px solid dashed
+			cursor: pointer
+			&:hover
+				border-color: transparent
+			@media(max-width: 770px)
+				display: inline-block
+	section
+		@media(max-width: 770px)
+			
+			padding: 0
+			margin: 0 auto
+			
+			.filter
+				display: none
+				&.open
+					display: block
+					position: absolute
+					padding: 1rem
+					width: auto
+					h1, .article
+						display: none
+					.item.supply-chars, .item.deck
+						display: none

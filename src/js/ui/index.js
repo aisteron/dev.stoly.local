@@ -2,6 +2,8 @@ import {$_, $$_} from '../libs.js'
 import {aside_filter} from './aside.filter.js'
 import {fancy} from './fancy.js'
 import {shelves_size} from './shelves.size.js'
+import {add_to_cart_from_prod_list} from './prod.list.js'
+import {Product} from './product.js'
 
 export function Ui(){
 
@@ -13,6 +15,8 @@ export function Ui(){
   aside_filter()
   fancy()
   shelves_size()
+  add_to_cart_from_prod_list()
+  Product()
 	
 }
 

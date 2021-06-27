@@ -90,7 +90,7 @@ aside
 						.height
 							margin: 0 1.5rem
 						span.head
-							border-bottom: 1px dotted #707070
+							border-bottom: 1px dashed $red
 							color: $red
 							cursor: pointer
 						.width, .height, .depth
@@ -99,7 +99,15 @@ aside
 							&:after
 								content: 'x'
 								position: absolute
-								right: -15px			
+								right: -15px
+						span.reset
+							font-size: 0.8rem
+							color: #777
+							border-bottom: 1px solid dashed
+							cursor: pointer
+							transition: color 0.3s ease-in-out
+							&:hover
+								color: $red
 
 			&.color
 				.row

@@ -1,9 +1,9 @@
-body.table-page
+body.shelf-page
 	section
 		width: 1140px
 		margin: 1rem auto
 		display: flex
-		
+		border: 1px solid rgba(191,21,21,.15)
 		@media(max-width: 1140px)
 			width: 100%
 			padding: 0 1rem
@@ -12,12 +12,13 @@ body.table-page
 			width: 463px
 			background: #fff8f1
 			padding: 50px
+			border-right: 1px solid #bf7b1526
 			h1
 				margin-top: 0
 				font-size: 2rem
 			span.article
 				display: block
-				color: $red	
+				color: $red
 			.item
 				&.color
 					padding-bottom: 1rem
@@ -69,8 +70,14 @@ body.table-page
 							line-height: 150%
 				&.deck
 					background: #ffe9d2
+					ul
+						li span:nth-child(odd)
+							font-weight: bold
 				&.supply-chars
 					background: #ffd2d2
+					ul
+						li span:nth-child(odd)
+							font-weight: bold
 				&.material
 					ul
 						height: 180px
@@ -104,5 +111,5 @@ body.table-page
 				&.mt
 					margin-top: 1rem	
 				&.mb
-					margin-bottom: 1rem	
-		
+					margin-bottom: 1rem		
+			
