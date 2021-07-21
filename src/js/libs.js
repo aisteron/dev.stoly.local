@@ -23,3 +23,55 @@ export function check_host(){
     return (window.location.host === TUNE.prod || window.location.host === TUNE.dev) ? host = '' : host = TUNE.protocol+TUNE.dev;
 
 }
+
+export let hostname;
+window.location.hostname == 'localhost' ? hostname = 'http://dev.stoly.by' : null
+
+
+/**
+ * Склонение существительных
+ * Правильная форма cуществительного рядом с числом (счетная форма).
+ *
+ * @example declension("файл", "файлов", "файла", 0);//returns "файлов"
+ * @example declension("файл", "файлов", "файла", 1);//returns "файл"
+ * @example declension("файл", "файлов", "файла", 2);//returns "файла"
+ *
+ * @param {string} oneNominative единственное число (именительный падеж)
+ * @param {string} severalGenitive множественное число (родительный падеж)
+ * @param {string} severalNominative множественное число (именительный падеж)
+ * @param {(string|number)} number количество
+ * @returns {string}
+ */
+export function declension(oneNominative, severalGenitive, severalNominative, number) {
+    number = number % 100;
+
+    return (number <= 14 && number >= 11)
+        ? severalGenitive
+        : (number %= 10) < 5
+            ? number > 2
+                ? severalNominative
+                : number === 1
+                    ? oneNominative
+                    : number === 0
+                        ? severalGenitive
+                        : severalNominative//number === 2
+            : severalGenitive
+    ;
+};
+
+
+export function ajax_to_cart(id){
+
+    var xhr = new XMLHttpRequest();
+    var body = `id=${id}&count=1&ms2_action=cart/add&ctx=web`
+    xhr.open("POST", hostname+'/assets/components/minishop2/action.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    
+    xhr.onreadystatechange = function() {
+      
+      if (this.readyState != 4) return
+      return JSON.parse(this.responseText);
+    }
+
+    xhr.send(body);
+}

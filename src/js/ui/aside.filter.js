@@ -22,13 +22,18 @@ function makeObserver(){
 	// функция обратного вызова
 	let callback = function(entries, observer){
 		entries.forEach(e => {
-				//console.log(e.isIntersecting)
-			if(e.isIntersecting){
-				
+
+			if(e.isIntersecting){	
 				document.querySelector('.item.results .row').classList.remove('fixed')
 			} else{
-					document.querySelector('.item.results .row').classList.add('fixed')
+				document.querySelector('.item.results .row').classList.add('fixed')
 			}
+			
+			if(e.boundingClientRect.y < 0){
+				
+					document.querySelector('.item.results .row').classList.remove('fixed')
+			}
+
 		})
 	}
 

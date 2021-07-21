@@ -25,11 +25,14 @@ body.category-page
 					display: flex
 					align-items: center
 					margin-right: 1rem
+					> *
+						pointer-events: none
+					&:hover
+						cursor: pointer
+						span
+							color: $red	
 					span
 						padding-right: 10px
-						cursor: pointer
-						&:hover
-							color: $red
 					.arrows
 						.arrow-up
 							width: 0
