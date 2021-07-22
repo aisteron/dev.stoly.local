@@ -11,67 +11,110 @@ export function onloadCSS(n,e){
 
 export const TUNE = {
 	local: 'localhost:8082',
-    //dev: 'dev.stoly.by',
-    dev: 'stoly.modx',
-    prod: 'stoly.by',
-    protocol: 'http://'
+		//dev: 'dev.stoly.by',
+		dev: 'stoly.modx',
+		prod: 'stoly.by',
+		protocol: 'http://'
 
 };
 
 export function check_host(){
-    let host;
-    return (window.location.host === TUNE.prod || window.location.host === TUNE.dev) ? host = '' : host = TUNE.protocol+TUNE.dev;
+		let host;
+		return (window.location.host === TUNE.prod || window.location.host === TUNE.dev) ? host = '' : host = TUNE.protocol+TUNE.dev;
 
 }
 
 export let hostname;
-window.location.hostname == 'localhost' ? hostname = 'http://dev.stoly.by' : null
+window.location.hostname == 'localhost' ? hostname = 'http://dev.stoly.by' : hostname = ''
 
 
 /**
  * Склонение существительных
- * Правильная форма cуществительного рядом с числом (счетная форма).
- *
  * @example declension("файл", "файлов", "файла", 0);//returns "файлов"
- * @example declension("файл", "файлов", "файла", 1);//returns "файл"
- * @example declension("файл", "файлов", "файла", 2);//returns "файла"
- *
- * @param {string} oneNominative единственное число (именительный падеж)
- * @param {string} severalGenitive множественное число (родительный падеж)
- * @param {string} severalNominative множественное число (именительный падеж)
- * @param {(string|number)} number количество
- * @returns {string}
  */
 export function declension(oneNominative, severalGenitive, severalNominative, number) {
-    number = number % 100;
+		number = number % 100;
 
-    return (number <= 14 && number >= 11)
-        ? severalGenitive
-        : (number %= 10) < 5
-            ? number > 2
-                ? severalNominative
-                : number === 1
-                    ? oneNominative
-                    : number === 0
-                        ? severalGenitive
-                        : severalNominative//number === 2
-            : severalGenitive
-    ;
+		return (number <= 14 && number >= 11)
+				? severalGenitive
+				: (number %= 10) < 5
+						? number > 2
+								? severalNominative
+								: number === 1
+										? oneNominative
+										: number === 0
+												? severalGenitive
+												: severalNominative//number === 2
+						: severalGenitive
+		;
 };
 
 
-export function ajax_to_cart(id){
+export async function ajax_to_cart(id){
 
-    var xhr = new XMLHttpRequest();
-    var body = `id=${id}&count=1&ms2_action=cart/add&ctx=web`
-    xhr.open("POST", hostname+'/assets/components/minishop2/action.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    
-    xhr.onreadystatechange = function() {
-      
-      if (this.readyState != 4) return
-      return JSON.parse(this.responseText);
-    }
+		let promise = new Promise(resolve => {
 
-    xhr.send(body);
+				var xhr = new XMLHttpRequest();
+				var body = `id=${id}&todo=add&action=cart`
+				xhr.open("POST", hostname+'/api', true);
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				
+				xhr.onreadystatechange = function() {
+					
+					if (this.readyState != 4) return
+					return resolve(JSON.parse(this.responseText));
+				}
+
+				xhr.send(body);
+
+		})
+
+		let result = await promise;
+		return result;		
+}
+
+export async function load_notify(){
+	
+	let assets = [
+	'/vendors/notify/simple-notify.min.js',
+	'/vendors/notify/simple-notify.min.css',
+	]
+
+	return new Promise(resolve => {
+			let script = document.createElement('script')
+			script.src = assets[0]
+			
+			$_('.scripts-area').appendChild(script)
+			
+			script.onload = () => {
+				let style = loadCSS(assets[1]);
+				
+				onloadCSS(style, function(){
+					return resolve('assets loaded')
+				})
+
+			}
+	})
+
+}
+
+export function show_notify(obj){
+
+	new Notify ({
+    status: obj.status,
+    title: obj.title,
+    text: obj.text,
+    effect: 'fade',
+    speed: 300,
+    customClass: null,
+    customIcon: null,
+    showIcon: true,
+    showCloseButton: true,
+    autoclose: true,
+    autotimeout: 3000,
+    gap: 20,
+    distance: 20,
+    type: 1,
+    position: 'right top'
+  })
 }
