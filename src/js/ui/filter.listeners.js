@@ -1,5 +1,6 @@
 import {$_, $$_, hostname, declension} from '../libs.js'
 
+
 let obj = {
 	size: [],
 	color: '',
@@ -113,7 +114,7 @@ function material(){
 	})
 }
 
-function get_shelves(obj){
+function get_shelves(obj, hide){
 			NProgress.start()
 			$_('.item.results .row').classList.add('stripe-animation')
 			var xhr = new XMLHttpRequest();
@@ -124,20 +125,25 @@ function get_shelves(obj){
 			xhr.onreadystatechange = function() {
 			  
 			  if (this.readyState != 4) return
-		  	draw( JSON.parse(this.responseText) );
+		  	draw( JSON.parse(this.responseText), hide );
 			}
 
 			xhr.send(body);
 
-
-
 }
 
-function draw(json){
-	if(!Object.keys(json).length){
+function draw(json, hide){
+
+	if(json.status == 'error'){
 		$_('.prod-list').innerHTML = `<p>Полок не найдено</p>`
+		NProgress.done()
+		$_('.item.results .row').classList.remove('stripe-animation')
+		$_('.item.results .row .count').innerHTML = 0
+		$_('.item.results .row .declension').innerHTML = declension("полка", "полок", "полки", 0);
+		$_('.item.results .row svg').classList.add('searched')
 		return;
 	}
+
 
 	if($_('article .row .sort').classList.length == 2){
 
@@ -191,7 +197,10 @@ function draw(json){
 	$_('.item.results .row').classList.remove('stripe-animation')
 	$_('.item.results .row .count').innerHTML = Object.keys(json).length
 	$_('.item.results .row .declension').innerHTML = declension("полка", "полок", "полки", Object.keys(json).length);
-	$_('.item.results .row svg').classList.add('searched')
+	if(!hide){
+		$_('.item.results .row svg').classList.add('searched')
+	}
+	
 }
 
 function reset_span_close(){
@@ -207,7 +216,17 @@ function reset_span_close(){
 		$_('.item.results .row svg').classList.remove('searched')
 		$_('article .row .sort').removeAttribute("class")
 		$_('article .row div').classList.add('sort')
-		get_shelves(obj)
+
+		
+		get_shelves(obj, true)
+
+		$$_('.item.size.shelves .row .head').forEach(span => span.innerHTML = 'выбрать')
+		$$_('.item.size.shelves .row ul').forEach(ul => ul.classList.remove('open'))
+
+		$$_('.item.color .row').forEach(row => row.classList.remove('active'))
+		$$_('.item.supply-type input[type="checkbox"]').forEach(checkbox => checkbox.checked = 0)
+
+		$$_('.item.material .row').forEach(row => row.classList.remove('active'))
 
 	})
 }

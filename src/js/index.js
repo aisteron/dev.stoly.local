@@ -1,5 +1,6 @@
 import {Ui} from './ui'
 import {Table} from './pages/table'
+import {Cart} from './pages/cart'
 
 
 document.readyState !== 'loading' ? init() : document.addEventListener('DOMContentLoaded', init)
@@ -7,5 +8,5 @@ document.readyState !== 'loading' ? init() : document.addEventListener('DOMConte
 function init(){
 	Ui()
 	Table()
-	
+	Cart()
 }

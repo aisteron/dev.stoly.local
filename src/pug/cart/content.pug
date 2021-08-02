@@ -1,1 +1,82 @@
-#root
+.row
+	h1 Корзина
+
+#msCart
+	.table-responsive
+		table.table.table-striped
+			tbody
+				tr.header
+					th.title Наименование
+					th.count Количество
+					th.price Цена
+					th.cost Стоимость
+					th.remove
+			tr#fc308dc6c3134ececcf6fc15b8180f07
+				td.title
+					.d-flex
+						.image.mw-100.pr-3
+							a(href='catalog/shelves/33')
+								img(src='http://dev.stoly.by/assets/images/products/33/small/sonata-black-u999st2.jpg')
+						.title
+							a(href='catalog/shelves/33') Полка навесная Соната П-1.4C черная/черный держатель
+				td.count
+					form.ms2_form(method='post' role='form')
+						input(type='hidden' name='key' value='fc308dc6c3134ececcf6fc15b8180f07')
+						.form-group
+							.input-group.input-group-sm
+								input.form-control(type='number' name='count' value='1')
+								.input-group-append
+									span.input-group-text &shcy;&tcy;.
+							button.btn.btn-sm(type='submit' name='ms2_action' value='cart/change') &orarr;
+				td.price
+					span.mr-2.text-nowrap 53.41 руб.
+				td.cost
+					span.mr-2.text-nowrap
+						span.ms2_cost 53.41 руб.
+				td.remove
+					form.ms2_form.text-md-right(method='post')
+						input(type='hidden' name='key' value='fc308dc6c3134ececcf6fc15b8180f07')
+						button.btn.btn-sm.btn-danger(type='submit' name='ms2_action' value='cart/remove') &times;
+			tr#fc308dc6c3134ececcf6fc15b8180f07
+				td.title
+					.d-flex
+						.image.mw-100.pr-3
+							a(href='catalog/shelves/33')
+								img(src='http://dev.stoly.by/assets/images/products/33/small/sonata-black-u999st2.jpg')
+						.title
+							a(href='catalog/shelves/33') Полка навесная Соната П-1.4C черная/черный держатель
+				td.count
+					form.ms2_form(method='post' role='form')
+						input(type='hidden' name='key' value='fc308dc6c3134ececcf6fc15b8180f07')
+						.form-group
+							.input-group.input-group-sm
+								input.form-control(type='number' name='count' value='1')
+								.input-group-append
+									span.input-group-text &shcy;&tcy;.
+							button.btn.btn-sm(type='submit' name='ms2_action' value='cart/change') &orarr;
+				td.price
+					span.mr-2.text-nowrap 53.41 руб.
+				td.cost
+					span.mr-2.text-nowrap
+						span.ms2_cost 53.41 руб.
+				td.remove
+					form.ms2_form.text-md-right(method='post')
+						input(type='hidden' name='key' value='fc308dc6c3134ececcf6fc15b8180f07')
+						button.btn.btn-sm.btn-danger(type='submit' name='ms2_action' value='cart/remove') &times;
+			
+			tr.footer
+				th.total Итого:
+				th.total_count
+					span.ms2_total_count 3 шт.
+				th.total_weight.text-nowrap(colspan='2')
+					span.ms2_total_weight
+				th.total_cost.text-nowrap(colspan='2')
+					span.ms2_total_cost 162.68 руб.
+
+.row
+	h3 Детали заказа
+	form.ms3_form#msOrder(method="POST")
+		input#email(type="text" name="email" placeholder="Email *" required value="1")
+		input#receiver(type="text" name="receiver" placeholder="Получатель *" required value="test@test.net")
+		input#phone(type="text" name="phone" placeholder="Телефон *" required value="3")
+		button(type="submit" name="ms2_action" value="order/submit") Сделать заказ

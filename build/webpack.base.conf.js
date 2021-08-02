@@ -26,7 +26,7 @@ module.exports = {
   },
   entry: {
     app: PATHS.src,
-    cart: `${PATHS.src}/cart.js`,
+    //cart: `${PATHS.src}/cart.js`,
   },
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,

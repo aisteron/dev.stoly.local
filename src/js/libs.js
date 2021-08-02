@@ -98,6 +98,8 @@ export async function load_notify(){
 
 }
 
+
+// https://github.com/dgknca/simple-notify/blob/master/README.md
 export function show_notify(obj){
 
 	new Notify ({
@@ -117,4 +119,21 @@ export function show_notify(obj){
     type: 1,
     position: 'right top'
   })
+}
+
+export async function get_cart_status(){
+	return new Promise(resolve => {
+		var xhr = new XMLHttpRequest();
+		var body = `&todo=get_status&action=cart`
+		xhr.open("POST", hostname+'/api', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		
+		xhr.onreadystatechange = function() {
+			
+			if (this.readyState != 4) return
+			return resolve(JSON.parse(this.responseText));
+		}
+
+		xhr.send(body);
+	})	
 }
