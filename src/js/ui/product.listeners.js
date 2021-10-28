@@ -14,6 +14,7 @@ import {draw_cart_icon_in_header} from './prod.list.js'
 
 export function product_listeners(){
 	// exported to product.js
+	// exported to small_table/index.js
 
 	one_click()
 	to_cart()

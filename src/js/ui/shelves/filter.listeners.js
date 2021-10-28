@@ -1,4 +1,4 @@
-import {$_, $$_, hostname, declension} from '../libs.js'
+import {$_, $$_, hostname, declension, get_total_products} from '../../libs.js'
 
 
 let obj = {
@@ -9,7 +9,8 @@ let obj = {
 }
 
 export function filter_listeners() {
-	if(!$_('body').classList.contains('category-page')) return
+
+	if(!$_('body').classList.contains('shelves')) return
 		shelf_size()
 		reset_shelf_size()
 		color()
@@ -71,24 +72,22 @@ function count_li(){
 
 function color(){
 	$$_('.item.color .body .row').forEach(row => {
+
 		row.addEventListener('click', event => {
-			if(event.target.tagName == "SPAN"){
-				obj.color = event.target.innerHTML.replace(/\s/g, '');
+
+				obj.color = event.target.querySelector('span').innerHTML.trim()
 				get_shelves(obj)
-			}
-			if(event.target.tagName == "DIV"){
-				obj.color = event.target.nextElementSibling.innerHTML.replace(/\s/g, '');
-				get_shelves(obj)
-			}
+
 		})
+
 	})
 }
 
 function type_keeper(){
 	if(!$_('.item.supply-type')) return;
-	let chex = $$_('.item.supply-type input[type="checkbox"]')
+	let chex = $$_('.item.supply-type input[type="radio"]')
 	chex.forEach(input => {
-		input.addEventListener('change', event => {
+		input.addEventListener('change', event => { 
 			obj.type_keeper = []
 			
 			chex.forEach(el => {
@@ -119,6 +118,7 @@ function get_shelves(obj, hide){
 			$_('.item.results .row').classList.add('stripe-animation')
 			var xhr = new XMLHttpRequest();
 			var body = `type_keeper=${obj.type_keeper}&action=get_shelves&color=${obj.color}&material=${obj.material}&size=${obj.size}`
+			if(obj.limit){body += `&limit=${obj.limit}`}
 			xhr.open("POST", hostname+'/api', true);
 			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 			
@@ -195,10 +195,16 @@ function draw(json, hide){
 	NProgress.done()
 
 	$_('.item.results .row').classList.remove('stripe-animation')
-	$_('.item.results .row .count').innerHTML = Object.keys(json).length
-	$_('.item.results .row .declension').innerHTML = declension("полка", "полок", "полки", Object.keys(json).length);
 	if(!hide){
 		$_('.item.results .row svg').classList.add('searched')
+		$_('.item.results .row .declension').innerHTML = declension("полка", "полок", "полки", Object.keys(json).length);
+		$_('.item.results .row .count').innerHTML = Object.keys(json).length
+	} else {
+		get_total_products(7).then(r => {
+
+		$_('.item.results .row .count').innerHTML = r
+		$_('.item.results .row .declension').innerHTML = declension("полка", "полок", "полки", r);
+		})
 	}
 	
 }
@@ -206,25 +212,26 @@ function draw(json, hide){
 function reset_span_close(){
 	$_('.item.results .row svg').addEventListener('click', event => {
 
-		let obj = {
-			size: [],
-			color: '',
-			type_keeper: [],
-			material: ''
-		}
+
 
 		$_('.item.results .row svg').classList.remove('searched')
 		$_('article .row .sort').removeAttribute("class")
 		$_('article .row div').classList.add('sort')
 
 		
-		get_shelves(obj, true)
+		get_shelves({
+			size: [],
+			color: '',
+			type_keeper: [],
+			material: '',
+			limit: 10
+		}, true)
 
 		$$_('.item.size.shelves .row .head').forEach(span => span.innerHTML = 'выбрать')
 		$$_('.item.size.shelves .row ul').forEach(ul => ul.classList.remove('open'))
 
 		$$_('.item.color .row').forEach(row => row.classList.remove('active'))
-		$$_('.item.supply-type input[type="checkbox"]').forEach(checkbox => checkbox.checked = 0)
+		$$_('.item.supply-type input[type="radio"]').forEach(checkbox => checkbox.checked = 0)
 
 		$$_('.item.material .row').forEach(row => row.classList.remove('active'))
 
@@ -232,6 +239,7 @@ function reset_span_close(){
 }
 
 function sort(){
+	
 	if(!$_('article .row .sort')) return;
 
 	$_('article .row .sort').addEventListener('click', event => {

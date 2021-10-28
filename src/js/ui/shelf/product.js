@@ -1,5 +1,5 @@
-import {$_, $$_, hostname, load_notify, show_notify} from '../libs.js'
-import {product_listeners, thumb_img_enlarge} from './product.listeners.js'
+import {$_, $$_, hostname, load_notify, show_notify} from '../../libs.js'
+import {product_listeners, thumb_img_enlarge} from '../product.listeners.js'
 
 let obj = [];
 
@@ -125,14 +125,15 @@ function draw(json){
 	*/
 
 	$_('h1').innerHTML = json.pagetitle
-	$_('.article').innerHTML = `Aртикул ${json.article}`
+	$_('span.h1').innerHTML = json.pagetitle
+	$$_('.article').forEach(el => el.innerHTML = `Aртикул ${json.article}`)
 	$_('.buttons a.cart').setAttribute('data-prodid', json.id)
 
 	if(window.location.hostname != 'localhost'){
 		history.pushState({'id': json.id}, json.pagetitle, window.location.origin+"/"+json.uri)
 	}
 
-	$_('article span.price').innerHTML = json.price
+	$_('article span.price').innerHTML = json.price + ' руб.'
 
 	/* gallery */
 
@@ -154,9 +155,9 @@ function draw(json){
 	json.gallery.forEach((el, index) => {
 	
 		if(index == 0){
-			str+=` <img src="${el.small}" width="60" height="42" data-origin="${el.url}" class="active">`
+			str+=` <img src="${hostname+el.small}" width="60" height="42" data-origin="${hostname+el.url}" class="active">`
 		} else {
-			str+=` <img src="${el.small}" width="60" height="42" data-origin="${el.url}">`
+			str+=` <img src="${hostname+el.small}" width="60" height="42" data-origin="${hostname+el.url}">`
 		}
 		
 	})

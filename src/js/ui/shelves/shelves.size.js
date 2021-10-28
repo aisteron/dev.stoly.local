@@ -1,4 +1,4 @@
-import {$_, $$_} from '../libs.js'
+import {$_, $$_} from '../../libs.js'
 
 // его еще предстоит получить!
 

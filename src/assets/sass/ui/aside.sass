@@ -119,11 +119,13 @@ aside
 					&:hover
 						span
 							color: $red
+							pointer-events: none
 					&.active
 						.box
 							border: 1px solid $red !important
 						span
 							color: $red
+							pointer-events: none
 					&:last-of-type
 						margin-bottom: 0		
 					.box
@@ -131,6 +133,7 @@ aside
 						height: 30px
 						border-radius: 5px
 						margin-right: 1rem
+						pointer-events: none
 						&.black
 							background: #111	
 						&.white
@@ -147,9 +150,16 @@ aside
 				.row
 					display: flex
 					align-items: center
+					cursor: pointer
+					> *
+						pointer-events: none
+					&:hover
+						span
+							color: $red
 					img
 						margin-right: 1rem
 						margin-bottom: 1rem
+						pointer-events: none
 					label
 						input
 							margin-right: 1rem
@@ -233,10 +243,18 @@ aside
 		position: absolute
 		top: -1rem
 		left: -1rem
-		width: 97vw
+		
 		height: 100%
 		opacity: 0
 		z-index: -1
 		transition: opacity 0.3s ease-in-out
 		&.open
+			width: 97vw
+			display: block !important
 			opacity: 1				
+
+.category-page.tables
+	aside
+		.item.size
+			.body
+				padding-bottom: 0rem

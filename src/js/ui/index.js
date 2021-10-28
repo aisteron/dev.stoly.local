@@ -1,12 +1,17 @@
 import {$_, $$_, load_notify, show_notify, hostname} from '../libs.js'
 import {aside_filter} from './aside.filter.js'
 import {fancy} from './fancy.js'
-import {shelves_size} from './shelves.size.js'
+import {shelves_size} from './shelves/shelves.size.js'
 import {add_to_cart_from_prod_list} from './prod.list.js'
-import {filter_listeners} from './filter.listeners.js'
+import {filter_listeners} from './shelves/filter.listeners.js'
 import {load_vex} from './product.listeners.js'
 
-import {Product} from './product.js'
+import {Product} from './shelf/product.js'
+
+import {tables_filter} from './tables/filter.js'
+import {Table} from './table/index.js'
+import {Small_table} from '../pages/small_table/index.js'
+
 
 export function Ui(){
 
@@ -21,6 +26,12 @@ export function Ui(){
   Product()
 
   footer_callback()
+
+  tables_filter()
+
+  Table()
+
+  Small_table()
 	
 }
 
@@ -30,7 +41,7 @@ function ripple_effect(e){
   $$_('.categories a.item').forEach(el => {
     el.addEventListener('click', function(e) {
 
-      e.preventDefault()
+      //e.preventDefault()
       if(this.getElementsByClassName('ripple').length > 0)
       {
         this.removeChild(this.childNodes[1]);

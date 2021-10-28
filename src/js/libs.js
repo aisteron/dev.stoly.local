@@ -137,3 +137,24 @@ export async function get_cart_status(){
 		xhr.send(body);
 	})	
 }
+
+
+export async function get_total_products(id){
+	// imported /ui/tables/filter.js
+	// imported /ui/shelves/filter.listeners.js
+
+	return new Promise(resolve => {
+		var xhr = new XMLHttpRequest();
+		var body = `&id=${id}&action=get_total_products`
+		xhr.open("POST", hostname+'/api', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		
+		xhr.onreadystatechange = function() {
+			
+			if (this.readyState != 4) return
+			return resolve(JSON.parse(this.responseText));
+		}
+
+		xhr.send(body);
+	})
+}
