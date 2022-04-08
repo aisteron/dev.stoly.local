@@ -12,6 +12,10 @@ import {tables_filter} from './tables/filter.js'
 import {Table} from './table/index.js'
 import {Small_table} from '../pages/small_table/index.js'
 
+import {Rack} from './rack/index.js'
+
+
+
 
 export function Ui(){
 
@@ -32,6 +36,8 @@ export function Ui(){
   Table()
 
   Small_table()
+
+  Rack()
 	
 }
 

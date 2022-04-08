@@ -19,9 +19,11 @@ export function product_listeners(){
 	one_click()
 	to_cart()
 	thumb_img_enlarge()
+
 }
 
-function one_click(){
+export function one_click(){
+
 	if(!$_('article a.one')) return;
 	$_('article a.one').addEventListener('click', event => {
 		event.preventDefault()
@@ -85,7 +87,7 @@ export async function load_vex(){
 	})
 }
 
-function to_cart(){
+export function to_cart(){
 	if(!$_('article a.cart')) {
 		console.log('%c 👆 Не вижу кнопки «В корзину»', 'color: red'); 
 		return;

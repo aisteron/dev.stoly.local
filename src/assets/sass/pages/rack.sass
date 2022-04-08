@@ -1,0 +1,85 @@
+body.rack-page
+	section
+		width: 677px
+		margin: 0 auto
+		@media(max-width: 700px)
+			width: 100%
+			.main_photo
+				img
+					width: 100%
+		article
+			background: #fff
+			margin-bottom: 1rem
+			padding-bottom: 2rem 
+			.thumbs, .wrap
+				width: 400px
+				margin: 0 auto
+				@media(max-width: 500px)
+					width: 90%
+			h1
+				font-size: 2rem
+				font-weight: 500
+				display: block
+				margin-bottom: 1rem	
+				color: #111
+				line-height: 110%
+				@media(max-width: 500px)
+					font-size: 1.5rem
+					margin-top: 1rem
+			.thumbs
+				img
+					border: 1px solid transparent
+					&.active
+						border-color: $red
+			.wrap
+				ul
+					width: 80%
+					li
+						line-height: 21px
+						font-size: 16px
+						display: flex
+						justify-content: space-between
+						span
+							&:nth-of-type(1)
+								color: $red
+				.price
+					font-size: 3rem
+					font-weight: bold
+					margin: 1rem 0		
+					display: inline-block
+					@media(max-width: 400px)
+						font-size: 1.5rem				
+				.buttons
+					display: flex
+					justify-content: space-between
+					@media(max-width: 400px)
+						flex-wrap: wrap	
+					a
+						border: 1px solid #333
+						padding: 5px 10px
+						display: flex
+						align-items: center
+						
+						font-size: 0.9rem
+						font-weight: 500
+						border-radius: 4px
+						transition: background 0.3s ease-in-out
+						img
+							margin-right: 10px
+						&.one
+							width: 170px
+							border-color: $red
+							max-height: 37px
+							&:hover
+								background: lighten($red, 40%)
+						&.cart
+							width: 130px
+							border-color: $orange
+							> *
+								pointer-events: none
+							&:hover
+								background: lighten($orange, 25%)
+							span
+								color: darken($orange, 10%)
+							@media(max-width: 400px)
+								margin-top: 0 !important				
