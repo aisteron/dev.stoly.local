@@ -49,7 +49,7 @@ function draw(json){
 
    } else {
    		$$_('.row').forEach(row => row.remove())
-   		$('#msCart').remove()
+   		$_('#msCart').remove()
 
    		$_('header').insertAdjacentHTML('afterend', `<h1>Заказ №${json.data.msorder} успешно оформлен<br><img src="/assets/img/589.webp"></h1>`)
    		if(!get_cart_status){
