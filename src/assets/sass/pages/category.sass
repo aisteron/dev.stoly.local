@@ -2,6 +2,63 @@ body.category-page
 	&.small_table-page
 		section
 			justify-content: center
+		article
+			display: flex
+			margin-left: 0
+			.left
+				margin-right: 39px
+				min-width: 574px
+			.right
+				h1
+					font-size: 30px
+					font-weight: normal	
+					color: #111
+				.thumbs
+					display: flex
+					justify-content: space-between
+					gap: 1rem
+					flex-wrap: wrap
+					margin-bottom: 1rem
+					img
+						border: 1px solid transparent
+						&.active
+							border-color: $red
+				.size, .article
+					color: #727272
+					display: block
+					font-size: 14px
+					margin-bottom: 5px
+				.price
+					font-size: 30px
+					color: $red
+					display: block
+					font-weight: bold
+				.buttons
+					display: flex
+					gap: 1rem
+					margin-top: 1rem
+					button
+						display: flex
+						align-items: center
+						border: none
+						background-color: transparent
+						cursor: pointer
+						border-radius: 3px
+						font-size: 14px
+						padding: 10px 20px 10px 10px
+						&:hover
+							background-color: #eee
+						img
+							margin-right: 15px
+						&.click
+							border: 1px solid $red
+							color: $red
+							
+						&.cart
+							border: 1px solid #FFAC58
+							color: #FA942D
+				.dsc
+					font-size: 14px
 	section
 		width: 1140px
 		margin: 1rem auto
@@ -63,3 +120,29 @@ body.category-page
 				a.card
 					margin-right: 1rem
 					margin-bottom: 1rem
+
+ul#new-list
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+	li.item
+		max-width: 325px
+		position: relative
+		>*
+			display: block
+			margin: 7px 0
+		a
+			color: #111
+			&:hover
+				color: $red
+			&:after
+				content: ""
+				position: absolute
+				inset: 0
+		.size, .article
+			color: #727272
+			font-size: 14px
+		.price
+			font-weight: bold
+			font-size: 18px
+			color: $red	
