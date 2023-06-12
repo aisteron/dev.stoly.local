@@ -33,30 +33,6 @@ body.category-page
 					color: $red
 					display: block
 					font-weight: bold
-				.buttons
-					display: flex
-					gap: 1rem
-					margin-top: 1rem
-					button
-						display: flex
-						align-items: center
-						border: none
-						background-color: transparent
-						cursor: pointer
-						border-radius: 3px
-						font-size: 14px
-						padding: 10px 20px 10px 10px
-						&:hover
-							background-color: #eee
-						img
-							margin-right: 15px
-						&.click
-							border: 1px solid $red
-							color: $red
-							
-						&.cart
-							border: 1px solid #FFAC58
-							color: #FA942D
 				.dsc
 					font-size: 14px
 	section
@@ -120,7 +96,45 @@ body.category-page
 				a.card
 					margin-right: 1rem
 					margin-bottom: 1rem
+body.shelves
+	ul#new-list
+		justify-content: flex-start
+		gap: 1rem
+body.shelf-page
+	section.h1
+		border: none
+		h1
+			font-size: 41px
+			margin: 1rem 0
+	.filter
+		min-width: 461px
+	article
+		margin-left: 1rem
+	.imgwrap
+		display: flex
+		max-width: 519px
+		gap: 1rem
+		margin-top: 1rem
+		.thumbs
+			img
+				border: 1px solid transparent
+				&.active
+					border-color: $red
+	.wrap
+		.buttons
+			justify-content: flex-start !important
+			gap: 1rem
+		span.size, span.article, span.price
+			display: block
+			color: #727272	
+		span.article
+			margin: 10px 0
+		span.price
+			font-size: 30px
+			color: $red
+			font-weight: 600		
 
+		
 ul#new-list
 	display: flex
 	justify-content: space-between
@@ -146,3 +160,30 @@ ul#new-list
 			font-weight: bold
 			font-size: 18px
 			color: $red	
+
+.buttons
+	display: flex
+	gap: 1rem
+	margin-top: 1rem
+	button
+		display: flex
+		align-items: center
+		border: none
+		background-color: transparent
+		cursor: pointer
+		border-radius: 3px
+		font-size: 14px
+		padding: 10px 20px 10px 10px
+		&:hover
+			background-color: #eee
+		img
+			margin-right: 15px
+		&.click
+			border: 1px solid $red
+			color: $red
+			
+		&.cart
+			border: 1px solid #FFAC58
+			color: #FA942D
+			>*
+				pointer-events: none			

@@ -125,14 +125,13 @@ function draw(json){
 	*/
 
 	$_('h1').innerHTML = json.pagetitle
-	$_('span.h1').innerHTML = json.pagetitle
+	//$_('span.h1').innerHTML = json.pagetitle
 	$$_('.article').forEach(el => el.innerHTML = `Aртикул ${json.article}`)
-	$_('.buttons a.cart').setAttribute('data-prodid', json.id)
+	$_('button.cart').setAttribute('data-prodid', json.id)
 
 	if(window.location.hostname != 'localhost'){
 		history.pushState({'id': json.id}, json.pagetitle, window.location.origin+"/"+json.uri)
 	}
-
 	$_('article span.price').innerHTML = json.price + ' руб.'
 
 	/* gallery */

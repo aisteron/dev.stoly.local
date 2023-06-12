@@ -161,37 +161,19 @@ function draw(json, hide){
 	
 	Object.keys(json).forEach(i => {
 		str+=`
-		<a class="card" href="${json[i].uri}">
-			<img class="lazyload"
-				data-src="${hostname+json[i].thumb}" width="233" height="160">
-            <ul>
-              <li class="size">
-                <svg viewBox="0 0 12 12">
-                  <path d="M3 .8V0H.4a.4.4 0 00-.4.4V3h.8V1.3l3.4 3.5.6-.6L1.3.8z"></path>
-                  <path d="M11.7 0H9v.8h1.8L7.3 4.2l.5.6 3.5-3.5V3h.7V.4a.4.4 0 00-.3-.4z"></path>
-                  <path d="M11.3 10.8L7.8 7.3l-.5.5 3.5 3.5H9v.7h2.7a.4.4 0 00.3-.3V9h-.7z"></path>
-                  <path d="M4.2 7.3L.8 10.8V9H0v2.7a.4.4 0 00.4.3H3v-.7H1.3l3.5-3.5z"></path>
-                </svg><span>${json[i].size}</span>
-              </li>
-              <li class="article">
-                <svg viewBox="0 0 12 13.1">
-                  <path d="M12 12.5L8.3.3a.5.5 0 00-.5-.3H4.2a.5.5 0 00-.5.3L0 12.5a.5.5 0 00.5.6H3a.5.5 0 00.5-.4l.5-2.4H8l.5 2.4a.5.5 0 00.5.4h2.6a.5.5 0 00.5-.6zM6 7.6H4.8l.2-.9 1-4.1 1 4.1.3 1z"></path>
-                </svg><span>Артикул ${json[i].article}</span>
-              </li>
-              <li class="price">
-              	<span class="regular">${json[i].price} руб.</span>
-              	<img class="cart-icon" src="/assets/img/cart.svg" 
-              	width="23" 
-              	height="20" 
-              	data-prodid="${json[i].id}">
-              </li>
-            </ul>
-            <div class="name"><span>${json[i].pagetitle}</span></div>
-      </a>
+		<li class="item">
+			<img data-src="${hostname + json[i].thumb}" width="325" height="423" class="lazyload"/>
+			<a href="${json[i].uri}" class="title">
+				${json[i].pagetitle}
+			</a>
+			<span class="size">${json[i].size}</span>
+			<span class="article">Артикул ${json[i].article}</span>
+			<span>${json[i].price} р.</span>
+		</li>
 		`
 	})
 
-	$_('.prod-list').innerHTML = str
+	$_('#new-list').innerHTML = str
 	NProgress.done()
 
 	$_('.item.results .row').classList.remove('stripe-animation')
