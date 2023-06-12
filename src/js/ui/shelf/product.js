@@ -156,7 +156,7 @@ function draw(json){
 		if(index == 0){
 			str+=` <img src="${hostname+el.small}" width="99" height="132" data-origin="${hostname+el.url}" class="active">`
 		} else {
-			str+=` <img src="${hostname+el.small}" width="199" height="132" data-origin="${hostname+el.url}">`
+			str+=` <img src="${hostname+el.small}" width="99" height="132" data-origin="${hostname+el.url}">`
 		}
 		
 	})
