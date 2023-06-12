@@ -154,15 +154,15 @@ function draw(json){
 	json.gallery.forEach((el, index) => {
 	
 		if(index == 0){
-			str+=` <img src="${hostname+el.small}" width="60" height="42" data-origin="${hostname+el.url}" class="active">`
+			str+=` <img src="${hostname+el.small}" width="99" height="132" data-origin="${hostname+el.url}" class="active">`
 		} else {
-			str+=` <img src="${hostname+el.small}" width="60" height="42" data-origin="${hostname+el.url}">`
+			str+=` <img src="${hostname+el.small}" width="199" height="132" data-origin="${hostname+el.url}">`
 		}
 		
 	})
 
 	$_('article .thumbs').innerHTML = str
 
-	$_('article .thumbs').insertAdjacentHTML('beforeend', `<img src="${material_uri[0]}" width="60" height="42" data-origin="${material_uri[1]}">`)
+	//$_('article .thumbs').insertAdjacentHTML('beforeend', `<img src="${material_uri[0]}" width="60" height="42" data-origin="${material_uri[1]}">`)
 	thumb_img_enlarge()
 }

@@ -154,7 +154,8 @@ export function thumb_img_enlarge(){
 			thumbs.forEach(img => img.classList.remove('active'))
 			event.target.classList.add('active')
 
-			$_('.main_photo img').src = event.target.dataset.origin
+			if($_('.main_photo img')) $_('.main_photo img').src = event.target.dataset.origin
+			if(qs('img.main')) qs('img.main').src = event.target.dataset.origin
 		})
 	})
 }

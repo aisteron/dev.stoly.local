@@ -1,4 +1,4 @@
-import {$_, $$_, hostname, declension, get_total_products} from '../../libs.js'
+import {$_, $$_, hostname, declension, get_total_products, qs} from '../../libs.js'
 
 
 let obj = {
@@ -168,13 +168,15 @@ function draw(json, hide){
 			</a>
 			<span class="size">${json[i].size}</span>
 			<span class="article">Артикул ${json[i].article}</span>
-			<span>${json[i].price} р.</span>
+			<span class="price">${json[i].price} р.</span>
 		</li>
 		`
 	})
 
 	$_('#new-list').innerHTML = str
 	NProgress.done()
+
+	qs('ul.pagination') && (qs('ul.pagination').style.visibility = 'hidden')
 
 	$_('.item.results .row').classList.remove('stripe-animation')
 	if(!hide){
